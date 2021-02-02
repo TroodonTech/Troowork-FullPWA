@@ -1,0 +1,118 @@
+<div div class="container col-md-12 col-lg-12 col-sm-12 col-xs-12">
+  <!-- <div class="container"> -->
+  <div class="row" style="display:block;margin:auto;">
+    <h4><b>CREATE QUICK WORK ORDER</b></h4>
+  </div>
+  <div class="col-md-12 bg-info" style="padding-top: 2rem;padding-bottom: 1rem">
+    <table class="table table-striped table-bordered">
+      <tbody>
+
+        <!-- <div style="margin-left: 1.5rem;margin-right: 1.5rem;" class="row bg-info col-md-12">
+    <div class="col-md-6">
+      <h3 style="text-align: right"></h3>
+      <div class="form-group"> -->
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                <label>Employee*</label>
+              </div>
+              <div class="col-8">
+                <select style="background-color:white !important;width:100%;" [(ngModel)]="EmployeeKey" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let e of EmployeeOption" [value]="e.EmployeeKey">
+                    {{e.EmployeeText}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!-- </div> -->
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col-4">
+                <label value="">WorkorderNotes*</label>
+              </div>
+              <div class="col-8">
+              
+                <textarea class="form-control" placeholder="Workorder Notes" maxlength="200"
+                [(ngModel)]="WorkorderNotes"
+                style="background-color:white !important; width:100% !important; border: 1px solid white;"></textarea>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="col-md-12 col-lg-12 col-sm-12" style="font-size:16px; margin-left:-1rem;">
+              <label><b>Select Location</b></label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                <label>Facility*</label>
+              </div>
+              <div class="col-8">
+                <select style="background-color:white !important;width:100%;" [(ngModel)]="FacilityKey" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let b of facilitylist" [value]="b.FacilityKey">
+                    {{b.FacilityText}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!-- </div> -->
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                <label>Priority Level</label>
+              </div>
+              <div class="col-8">
+                <select style="background-color:white!important;width:100%;" [(ngModel)]="PriorityKey" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let b of prioritylist" [value]="b.PriorityKey">
+                    {{b.PriorityText}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                <label><a>PhotoRequired </a>
+                </label>
+              </div>
+              <div>
+                <label class="switch" style="float:right; ">
+                  <input type="checkbox" [(ngModel)]="isPhotoRequired" data-md-icheck
+                    (change)="toggleVisibility($event)" />&nbsp;
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      
+        <br>
+        <div class="row col-md-12" style="margin-left:0%;">
+          <a style="color:white !important; width:100%;" class="btn btn-success"
+            (click)="saveQuickWorkOrder()"><b>Create</b>
+          </a>
+        </div>
+       
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@media only screen and (min-device-width:320px) and (max-device-width: 568px) and (orientation:landscape) {
+   
+    .app{
+        width:50%;
+        margin-left:3rem;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width: 568px) and (orientation:portrait) {
+    .app{
+        width:50%;
+        margin-left:3rem;
+        text-align: center;
+    }
+}

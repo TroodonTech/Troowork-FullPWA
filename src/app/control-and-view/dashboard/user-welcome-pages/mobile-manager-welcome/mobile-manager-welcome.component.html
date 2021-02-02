@@ -1,0 +1,70 @@
+
+<!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">Close Navigation</a>
+<span style="font-size:30px;cursor:pointer;" (click)="openNav()">&#9776;</span> -->
+<div id="main">
+  
+  <div *ngIf="showmenu" class="col-md-4 menu">
+      <ul>
+      <button (click)="selectedOpt(2);">Work Order</button>
+      <button (click)="selectedOpt(3);">Scan for Work Order</button>
+      <button (click)="selectedOpt(4);">Inspection Order</button>
+      <button (click)="selectedOpt(6);">Find Employee</button>
+      <button (click)="selectedOpt(5);">Live Tracking</button>
+      <button (click)="selectedOpt(7)">Scheduler View</button>
+
+    </ul> 
+   
+  </div>    
+ 
+  <div class="col-md-4 menu">
+    <div *ngIf="workOrder == true;">
+      <ul>
+        <button (click)="createwo()">Create Work Order
+        </button>
+
+         <button (click)="createqo()">Create Quick Order
+        </button> 
+
+        <button (click)="viewwo()">View Work Order
+        </button>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-4 menu">
+    <div *ngIf="inspectionDisplay == true;">
+      <ul>
+        <button (click)="creati()">Create Inspection
+        </button>
+        <button (click)="viewi()">View Inspection
+        </button>
+        <button>Scan to Create Inspection</button>
+      </ul>
+    </div>
+  </div>
+   
+
+  <!-- <div class="col-md-4 menu">
+    <div *ngIf="livetrackingDisplay == true;">
+      <ul>
+        <button [routerLink]="[{outlets:{MobileManagerOut:['DocumentfolderView']}}]">Create New
+          Document Folder</button>
+        <button [routerLink]="[{outlets:{MobileManagerOut:['DocumentsUpload']}}]">Upload
+          Document</button>
+        <button [routerLink]="[{outlets:{MobileManagerOut:['ViewDocuments']}}]">View
+          Document</button>>
+      </ul>
+    </div>
+  </div> -->
+  
+  <div class="navbar1">
+    <a (click)="selectedOpt(1);"><i class="fa fa-home"></i>Home</a>
+    <a (click)="selectedOpt(2);"><i class="fa fa-stack-exchange"></i>Work Order</a>
+    <a (click)="selectedOpt(3);"><i class="fa fa-barcode"></i>Scan for Work</a>
+    <a (click)="selectedOpt(4);"><i class="fa fa-search"></i>Inspection</a>
+    <a (click)="selectedOpt(5);"><i class="fa fa-map-marker"></i>Live Tracking</a>
+    <!-- <a (click)="selectedOpt(6);"><i class="fa fa-map-marker"></i>Find Employee</a>
+    <a (click)="selectedOpt(7);"><i class="fa fa-map-marker"></i>Scheduler View</a> -->
+  </div>
+</div>
+

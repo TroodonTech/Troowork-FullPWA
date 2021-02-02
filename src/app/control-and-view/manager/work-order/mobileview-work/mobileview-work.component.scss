@@ -1,0 +1,107 @@
+// agm-map {
+//     height: 300px;
+//     /* height is required */
+//   }
+  
+//   .button-brown-true {
+//     background-color: rgb(255, 42, 66);
+//     color: black;
+//   }
+  
+  .bg-info {
+    background-color: #FFFFFF !important;
+  }
+  .topnav {
+    overflow: hidden;
+    background-color: rgb(252, 246, 246);
+    width:100%;
+  }
+  
+  .topnav a {
+    float: left;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    width:32%
+  }
+  
+  .topnav a:hover {
+    background-color: rgb(70, 159, 167);
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: rgb(70, 159, 167);
+    color: white;
+  }
+  .content1 {
+    display: block;
+  
+    margin: 18px;
+    // height:150px;
+    // line-height: 40px;
+    background-color: white;
+    width: 95%;
+    padding: 0px;
+    border: 1px solid grey;
+  }
+  
+  .content2 {
+    display: block;
+    margin: 4%;
+    background-color: white;
+    width: 80%;
+    // height: 95px;
+    font-size:9px;
+    border: 10px solid rgb(204, 130, 188);
+    padding: 0px 0px 10px 10px;
+    //   line-height: 1.6;
+    text-align:center !important;
+  }
+  
+  .content {
+    display: block;
+    margin: 0 auto;
+    // height: 200px;
+    // line-height: 40px; 
+    background-color: white;
+    width: 80%;
+    padding: 0px 20px 0px 20px;
+    border: 1px solid grey;
+  }
+  
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+    // display:inline-block;
+  }
+  
+  .btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  i {
+    float: right;
+    color: black;
+    color: transparent;
+  }
+  
+  .my-icon {
+    line-height: 70px;
+  }
+  
+  .next1 {
+    float: right;
+    margin-top:20%;
+    margin-right: 1%;
+  }
+  
