@@ -26,7 +26,7 @@ export class MobilecreateWorkComponent implements OnInit {
   org_id: number;
   marked = false;
   // isMobile: boolean;
- 
+
   FacilityKey;
   FloorKey;
   ZoneKey;
@@ -38,7 +38,8 @@ export class MobilecreateWorkComponent implements OnInit {
   EmployeeKey;
   value = false;
   value1;
-  show = true;
+  show = false;
+  show1 = false;
   timeValue: any;
   dateValue: any;
   isPhotoRequired: any;
@@ -144,7 +145,7 @@ export class MobilecreateWorkComponent implements OnInit {
     barTitleIfEmpty: 'Click to select a date',
     placeholder: 'Click to select a date', // HTML input placeholder attribute (default: '')
     addClass: '', // Optional, value to pass on to [ngClass] on the input field
-    addStyle: { 'font-size': '18px', 'width': '100%', 'border': '1px solid #ced4da', 'background-color':'white', 'border-radius': '0.25rem' }, // Optional, value to pass to [ngStyle] on the input field
+    addStyle: { 'font-size': '18px', 'width': '100%', 'border': '1px solid #ced4da', 'background-color': 'white', 'border-radius': '0.25rem' }, // Optional, value to pass to [ngStyle] on the input field
     fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
     useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown 
   };
@@ -169,7 +170,7 @@ export class MobilecreateWorkComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+
     var token = localStorage.getItem('token');
     var encodedProfile = token.split('.')[1];
     var profile = JSON.parse(this.url_base64_decode(encodedProfile));
@@ -213,11 +214,10 @@ export class MobilecreateWorkComponent implements OnInit {
         var newArray = data.slice(0); //clone the array, or you'll end up with a new "None" option added to your "values" array on every digest cycle.
         // newArray.unshift({ WorkorderTypeText: "Create New", WorkorderTypeKey: "-99" });//adding create new as first option of dropdown
         this.workorderTypeList = newArray;
-        for(var i=0; i< this.workorderTypeList.length; i++)
-        {
-          if (this.workorderTypeList[i].WorkorderTypeText === "Equipment")
-          {
-           this.newWOTKey=this.workorderTypeList[i].WorkorderTypeKey;
+        for (var i = 0; i < this.workorderTypeList.length; i++) {
+          if (this.workorderTypeList[i].WorkorderTypeText === "Equipment") {
+            this.newWOTKey = this.workorderTypeList[i].WorkorderTypeKey;
+            console.log("this.newWOTKey " + this.newWOTKey);
           }
         }
       });
@@ -231,9 +231,9 @@ export class MobilecreateWorkComponent implements OnInit {
       .subscribe((data: any[]) => {
         this.EmployeeOption = data;
       });
-      // this.onResize();
-      // this.responsiveService.checkWidth();
-     
+    // this.onResize();
+    // this.responsiveService.checkWidth();
+
 
   }
   //function called on checkbox value change
@@ -348,8 +348,12 @@ export class MobilecreateWorkComponent implements OnInit {
         this.ZoneKey = -1;
         this.RoomTypeKey = -1;
         this.RoomKey = -1;
+        this.show = false;
+        this.show1 = true;
       }
       else {
+        this.show = true;
+        this.show1 = false;
         this.WorkOrderServiceService//service for getting zones
           .getzone_facilityfloor(floor, facility, this.org_id)
           .subscribe((data: any[]) => {
@@ -1502,33 +1506,33 @@ export class MobilecreateWorkComponent implements OnInit {
       this.eqp_key = this.EquipmentKey;
     } else {
       // var k = confirm("100s of workorders will be created because an individual equipment has not been selected. Do you want to continue ?");
-        // if (k) {
-        //   if (EquListObj) {
-        //     for (var j = 0; j < EquListObj.length; j++) {
-        //       equList.push(EquListObj[j].EquipmentKey);
-        //     }
-        //     this.eqp_key = equList.join(',');
-        //   }
-        // } else {
-        //   return;
-        // }
+      // if (k) {
+      //   if (EquListObj) {
+      //     for (var j = 0; j < EquListObj.length; j++) {
+      //       equList.push(EquListObj[j].EquipmentKey);
+      //     }
+      //     this.eqp_key = equList.join(',');
+      //   }
+      // } else {
+      //   return;
+      // }
 
-        if (EquListObj) {
-          if (EquListObj.length <= 100) {
-            for (var j = 0; j < EquListObj.length; j++) {
-              equList.push(EquListObj[j].EquipmentKey);
-            }
-            this.eqp_key = equList.join(',');
-
+      if (EquListObj) {
+        if (EquListObj.length <= 100) {
+          for (var j = 0; j < EquListObj.length; j++) {
+            equList.push(EquListObj[j].EquipmentKey);
           }
-          else {
-            alert("Limit for the maximum workorders have reached. Maximum 100");
-            return;
-          }
+          this.eqp_key = equList.join(',');
 
-        } else {
+        }
+        else {
+          alert("Limit for the maximum workorders have reached. Maximum 100");
           return;
         }
+
+      } else {
+        return;
+      }
     }
     if (this.EmployeeKey) {
       this.emp_key = this.EmployeeKey;
@@ -1799,6 +1803,8 @@ export class MobilecreateWorkComponent implements OnInit {
       this.ZoneKey = -1;
       this.RoomTypeKey = -1;
       this.RoomKey = -1;
+      this.show = false;
+      this.show1 = true;
     }
     else {
       this.ZoneKey = "";
@@ -1806,6 +1812,8 @@ export class MobilecreateWorkComponent implements OnInit {
       this.RoomKey = "";
       this.EquipmentTypeKey = "";
       this.EquipmentKey = "";
+      this.show = false;
+      this.show1 = false;
     }
   }
   //function to check if it is a new workordertype
@@ -1814,6 +1822,13 @@ export class MobilecreateWorkComponent implements OnInit {
     //   this.newType = true;
     // }
     console.log(wot_key);
+    if (this.newWOTKey == wot_key) {
+      this.showEqTypes = true;
+
+      this.show = false;
+      this.show1 = true;
+      this.change_values();
+    }
   }
 
   //for new workordertype goback
@@ -2208,13 +2223,14 @@ export class MobilecreateWorkComponent implements OnInit {
       });
     }
   }
-  changed(){
-    this.value1 = this.value;
-    if(this.show == true) { this.show = false;
-    }else{
-      this.show = true;
-    }
-  }
+  // changed() {
+  //   this.value1 = this.value;
+  //   if (this.show == true) {
+  //     this.show = false;
+  //   } else {
+  //     this.show = true;
+  //   }
+  // }
   // onResize() {
   //   this.responsiveService.getMobileStatus().subscribe(isMobile => {
   //     this.isMobile = isMobile;
