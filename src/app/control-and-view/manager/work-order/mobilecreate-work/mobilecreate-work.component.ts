@@ -881,7 +881,7 @@ export class MobilecreateWorkComponent implements OnInit {
                     };
                     this.WorkOrderServiceService.addWorkOrderWithOutEqup(this.workorderCreation).subscribe(res => {
                       alert("Work-order created successfully");
-                      this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+                      this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
                     });
                   });
               } else {
@@ -921,7 +921,7 @@ export class MobilecreateWorkComponent implements OnInit {
         };
         this.WorkOrderServiceService.addWorkOrderWithOutEqup(this.workorderCreation).subscribe(res => {
           alert("Work-order created successfully");
-          this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+          this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
         });
       }
     }
@@ -1362,7 +1362,7 @@ export class MobilecreateWorkComponent implements OnInit {
                     };
                     this.WorkOrderServiceService.addWorkOrderEqup(this.workorderCreation).subscribe(res => {
                       alert("Work-order created successfully");
-                      this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+                      this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
                     });
                   });
               } else {
@@ -1402,7 +1402,7 @@ export class MobilecreateWorkComponent implements OnInit {
         };
         this.WorkOrderServiceService.addWorkOrderEqup(this.workorderCreation).subscribe(res => {
           alert("Work-order created successfully");
-          this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+          this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
         });
       }
     }
@@ -1745,7 +1745,7 @@ export class MobilecreateWorkComponent implements OnInit {
                   };
                   this.WorkOrderServiceService.addWorkOrderEqup(this.workorderCreation).subscribe(res => {
                     alert("Work-order created successfully");
-                    this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+                    this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
                   });
                 });
             } else {
@@ -1784,7 +1784,7 @@ export class MobilecreateWorkComponent implements OnInit {
       };
       this.WorkOrderServiceService.addWorkOrderEqup(this.workorderCreation).subscribe(res => {
         alert("Work-order created successfully");
-        this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+        this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
       });
     }
 
@@ -2179,7 +2179,7 @@ export class MobilecreateWorkComponent implements OnInit {
                   };
                   this.WorkOrderServiceService.addWorkOrderWithOutEqup(this.workorderCreation).subscribe(res => {
                     alert("Work-order created successfully");
-                    this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+                    this.router.navigate(['/MobileManagerDashBoard', { outlets: {MobileManagerOut: ['MobileviewWork'] } }]);
                   });
                 });
             } else {
@@ -2219,7 +2219,7 @@ export class MobilecreateWorkComponent implements OnInit {
       };
       this.WorkOrderServiceService.addWorkOrderWithOutEqup(this.workorderCreation).subscribe(res => {
         alert("Work-order created successfully");
-        this.router.navigate(['/ManagerDashBoard', { outlets: { ManagerOut: ['ViewWorkOrder'] } }]);
+        this.router.navigate(['/MobileManagerDashBoard', { outlets: { MobileManagerOut: ['MobileviewWork'] } }]);
       });
     }
   }
